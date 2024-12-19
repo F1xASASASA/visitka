@@ -1,0 +1,119 @@
+.block {
+    margin-bottom: 3rem;
+}
+
+.sitename {
+    margin: 2;
+    margin-bottom: 10px;
+    font: "Times New Roman";
+}
+
+nav {
+    margin: 0px;
+    display: flex;
+    width: 100%;  /* Используем 100% ширины */
+    background-color: orange;
+    justify-content: space-between; /* Равномерное распределение элементов */
+}
+
+.container {
+    display: flex;
+}
+
+main {
+    width: 660px;
+    padding: 20px;
+}
+
+body {
+    font: "Times New Roman";
+}
+
+.left {
+    width: 270px;
+    margin-right: 20px;
+    padding: 20px;
+}
+
+footer {
+    padding: 30px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 30px;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+nav a:hover,
+nav a:active {
+    color: rgb(255, 136, 0);
+    text-decoration: underline;
+}
+
+main p {
+    margin: 10px 0;
+    text-align: justify;
+    font: 15px Arial;
+}
+
+.qwe {
+    color: gray;
+}
+
+.ewq {
+    color: orange;
+}
+
+ul {
+    list-style-image: url(image/li.gif);
+}
+
+button {
+    background-color: white;
+    border: 1px solid rgb(170, 170, 170);
+    color: orange;
+    float: right;
+    padding: 5px;
+}
+
+img {
+    width: 1050px;
+}
+
+/* Добавляем стиль для разделителя */
+.footer-divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 30px 0;
+}
+
+/* Отступы между блоками в main */
+main h1 {
+    margin-bottom: 20px; /* Добавляем отступ после заголовков */
+}
+
+main p {
+    margin-bottom: 15px; /* Отступ после каждого параграфа */
+}
+
+main ul {
+    margin-bottom: 20px; /* Отступ после списков */
+}
+
+main button {
+    margin-top: 20px; /* Отступ сверху для кнопок */
+}
+
+/* Отступ между вторым заголовком h1 и первой кнопкой */
+main h1 + button {
+    margin-top: 40px; /* Добавляем отступ сверху для первой кнопки */
+}
+
+.footer-divider1 {
+    height: 1px;
+    background-color: #ccc;
+    margin: 15px 0;
+}
