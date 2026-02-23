@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arseniy Dev | Portfolio</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -23,9 +25,12 @@
 
         .bg-grid {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: 50px 50px;
-            background-image: 
+            background-image:
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
@@ -40,7 +45,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             transform-style: preserve-3d;
             will-change: transform;
-            transition: transform 0.1s ease-out, border-color 0.3s;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s;
         }
 
         .glass:hover {
@@ -65,16 +70,38 @@
             opacity: 0.6;
             animation: floatBlob 10s infinite alternate ease-in-out;
         }
-        .blob-1 { top: -20%; left: -10%; background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%); }
-        .blob-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, rgba(232, 121, 249, 0.15) 0%, transparent 70%); animation-delay: -5s; }
 
-        @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 50px) scale(1.1); }
+        .blob-1 {
+            top: -20%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
         }
 
-        .section-content { display: none; opacity: 0; }
-        .section-content.active { display: block; }
+        .blob-2 {
+            bottom: -20%;
+            right: -10%;
+            background: radial-gradient(circle, rgba(232, 121, 249, 0.15) 0%, transparent 70%);
+            animation-delay: -5s;
+        }
+
+        @keyframes floatBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
+        }
+
+        .section-content {
+            display: none;
+            opacity: 0;
+        }
+
+        .section-content.active {
+            display: block;
+        }
 
         .tech-tag {
             background: rgba(255, 255, 255, 0.05);
@@ -84,6 +111,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
+
         .tech-tag:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
@@ -95,6 +123,7 @@
             outline: none;
             transition: 0.3s;
         }
+
         .input-glass:focus {
             border-color: rgba(139, 92, 246, 0.5);
             background: rgba(255, 255, 255, 0.05);
@@ -102,6 +131,7 @@
         }
     </style>
 </head>
+
 <body class="p-4 md:p-8 pt-10 md:pt-24 flex items-start justify-center">
 
     <div class="bg-grid"></div>
@@ -109,53 +139,63 @@
     <div class="blob blob-2"></div>
 
     <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-6 relative perspective-container">
-        
+
         <aside class="lg:col-span-3 space-y-6" id="sidebar">
-            
+
             <div id="tilt-card-profile" class="glass p-6 rounded-[2rem] text-left relative tilt-card">
-                
+
                 <div class="flex items-start justify-between mb-4">
-                    <img 
-                        src="image.jpg" 
-                        alt="Арсений" 
-                        class="w-20 h-20 rounded-2xl shadow-lg shadow-violet-500/20 object-cover mx-0"
-                    >
-                    <div onclick="toggleLanguage()" class="w-24 h-9 bg-white/5 rounded-full flex items-center relative cursor-pointer border border-white/10 hover:border-white/20 transition-colors overflow-hidden group shrink-0">
-                        <div id="lang-slider" class="absolute left-1 top-1 w-[calc(50%-4px)] h-[calc(100%-8px)] bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-full transition-all duration-300 ease-out shadow-[0_0_15px_rgba(139,92,246,0.5)]"></div>
-                        <span id="lang-ru" class="flex-1 text-center text-[11px] font-extrabold z-10 transition-colors duration-300 text-white select-none">RU</span>
-                        <span id="lang-en" class="flex-1 text-center text-[11px] font-extrabold z-10 transition-colors duration-300 text-gray-500 group-hover:text-gray-300 select-none">EN</span>
+                    <img src="image.jpg" alt="Арсений"
+                        class="w-20 h-20 rounded-2xl shadow-lg shadow-violet-500/20 object-cover mx-0">
+                    <div onclick="toggleLanguage()"
+                        class="w-24 h-9 bg-white/5 rounded-full flex items-center relative cursor-pointer border border-white/10 hover:border-white/20 transition-colors overflow-hidden group shrink-0">
+                        <div id="lang-slider"
+                            class="absolute left-1 top-1 w-[calc(50%-4px)] h-[calc(100%-8px)] bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-full transition-all duration-300 ease-out shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+                        </div>
+                        <span id="lang-ru"
+                            class="flex-1 text-center text-[11px] font-extrabold z-10 transition-colors duration-300 text-white select-none">RU</span>
+                        <span id="lang-en"
+                            class="flex-1 text-center text-[11px] font-extrabold z-10 transition-colors duration-300 text-gray-500 group-hover:text-gray-300 select-none">EN</span>
                     </div>
                 </div>
 
-                <h1 class="text-xl font-extrabold tracking-tight cursor-default" onmouseover="scrambleText(this, 'Арсений .dev')" data-original="Арсений .dev">
-                    Арсений <span class="text-violet-500">.dev</span>
+                <h1 class="text-xl font-extrabold tracking-tight cursor-default">
+                    <span onmouseover="scrambleText(this, 'Арсений')" class="cursor-pointer">Арсений</span>
+                    <span class="text-violet-500">.dev</span>
                 </h1>
                 <p class="text-gray-500 text-sm mt-1" data-lang="role">Frontend Engineer</p>
             </div>
 
             <nav class="glass p-3 rounded-[2rem] flex lg:flex-col gap-2 overflow-x-auto tilt-card">
-                <button id="nav-home" onclick="switchSection('home')" class="nav-item active flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap">
+                <button id="nav-home" onclick="switchSection('home')"
+                    class="nav-item active flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap">
                     <i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-lang="nav_home">Главная</span>
                 </button>
-                <button id="nav-about" onclick="switchSection('about')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-about" onclick="switchSection('about')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="user" class="w-4 h-4"></i> <span data-lang="nav_about">Обо мне</span>
                 </button>
-                <button id="nav-stack" onclick="switchSection('stack')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-stack" onclick="switchSection('stack')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="layers" class="w-4 h-4"></i> <span data-lang="nav_stack">Стек</span>
                 </button>
-                <button id="nav-projects" onclick="switchSection('projects')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-projects" onclick="switchSection('projects')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="code-2" class="w-4 h-4"></i> <span data-lang="nav_projects">Кейсы</span>
                 </button>
-                <button id="nav-contact" onclick="switchSection('contact')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-contact" onclick="switchSection('contact')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="send" class="w-4 h-4"></i> <span data-lang="nav_contact">Связь</span>
                 </button>
             </nav>
 
             <div class="glass p-6 rounded-[2rem] hidden lg:block tilt-card">
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4" data-lang="status_title">Статус</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4" data-lang="status_title">
+                    Статус</p>
                 <div class="flex items-center gap-3 text-sm">
                     <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                     </span>
                     <span data-lang="status_text">Доступен для проектов</span>
@@ -164,18 +204,23 @@
         </aside>
 
         <main class="lg:col-span-9 h-full min-h-[500px]">
-            
+
             <section id="home" class="section-content active space-y-6">
                 <div class="glass p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden tilt-card">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 blur-[80px] rounded-full pointer-events-none"></div>
-                    
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 blur-[80px] rounded-full pointer-events-none">
+                    </div>
+
                     <div class="relative z-10">
                         <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                            <span data-lang="hero_title_1">Создаю цифровые решения</span> <br> 
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400 animate-pulse" data-lang="hero_title_2">через код и дизайн.</span>
+                            <span data-lang="hero_title_1">Создаю цифровые решения</span> <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400 animate-pulse"
+                                data-lang="hero_title_2">через код и дизайн.</span>
                         </h2>
                         <p class="text-gray-400 text-lg max-w-xl leading-relaxed mb-8" data-lang="hero_desc">
-                            Специализируюсь на создании высокопроизводительных SPA на React и интерактивных интерфейсов с использованием GSAP. 2 года в разработке.
+                            Специализируюсь на создании высокопроизводительных SPA на React и интерактивных интерфейсов
+                            с использованием GSAP. 2 года в разработке.
                         </p>
                         <div class="flex flex-wrap gap-3">
                             <span class="tech-tag text-violet-300">#TypeScript</span>
@@ -188,17 +233,21 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between group tilt-card">
-                        <i data-lucide="zap" class="w-10 h-10 text-yellow-400 mb-6 group-hover:scale-110 transition duration-300"></i>
+                        <i data-lucide="zap"
+                            class="w-10 h-10 text-yellow-400 mb-6 group-hover:scale-110 transition duration-300"></i>
                         <div>
                             <h3 class="text-xl font-bold mb-2" data-lang="feature_1_title">Производительность</h3>
-                            <p class="text-sm text-gray-500" data-lang="feature_1_desc">Оптимизация Core Web Vitals и быстрая загрузка.</p>
+                            <p class="text-sm text-gray-500" data-lang="feature_1_desc">Оптимизация Core Web Vitals и
+                                быстрая загрузка.</p>
                         </div>
                     </div>
                     <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between group tilt-card">
-                        <i data-lucide="palette" class="w-10 h-10 text-fuchsia-400 mb-6 group-hover:scale-110 transition duration-300"></i>
+                        <i data-lucide="palette"
+                            class="w-10 h-10 text-fuchsia-400 mb-6 group-hover:scale-110 transition duration-300"></i>
                         <div>
                             <h3 class="text-xl font-bold mb-2" data-lang="feature_2_title">Pixel Perfect</h3>
-                            <p class="text-sm text-gray-500" data-lang="feature_2_desc">Точный перенос макетов из Figma в код.</p>
+                            <p class="text-sm text-gray-500" data-lang="feature_2_desc">Точный перенос макетов из Figma
+                                в код.</p>
                         </div>
                     </div>
                 </div>
@@ -209,18 +258,28 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
                         <div class="md:col-span-5 space-y-6">
                             <h2 class="text-3xl font-bold" data-lang="about_title">Кто я такой?</h2>
-                            
-                            <div class="bg-white/5 p-6 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-violet-500/30 transition">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-violet-500/20 blur-xl rounded-full -mr-10 -mt-10"></div>
+
+                            <div
+                                class="bg-white/5 p-6 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-violet-500/30 transition">
+                                <div
+                                    class="absolute top-0 right-0 w-20 h-20 bg-violet-500/20 blur-xl rounded-full -mr-10 -mt-10">
+                                </div>
                                 <div class="flex items-center gap-3 mb-4">
-                                    <div class="p-2 bg-white/10 rounded-lg"><i data-lucide="graduation-cap" class="w-5 h-5 text-violet-400"></i></div>
-                                    <span class="text-xs font-bold tracking-wider text-gray-400 uppercase" data-lang="edu_label">Образование</span>
+                                    <div class="p-2 bg-white/10 rounded-lg"><i data-lucide="graduation-cap"
+                                            class="w-5 h-5 text-violet-400"></i></div>
+                                    <span class="text-xs font-bold tracking-wider text-gray-400 uppercase"
+                                        data-lang="edu_label">Образование</span>
                                 </div>
                                 <h3 class="text-xl font-bold mb-1" data-lang="edu_school">Колледж МИДиС</h3>
-                                <p class="text-sm text-gray-400 mb-4" data-lang="edu_faculty">Разработка веб и мультимедийных приложений</p>
+                                <p class="text-sm text-gray-400 mb-4" data-lang="edu_faculty">Разработка веб и
+                                    мультимедийных приложений</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-violet-500/20 text-violet-300 text-xs font-bold rounded-lg border border-violet-500/20" data-lang="edu_year">2 курс</span>
-                                    <span class="px-3 py-1 bg-white/5 text-gray-400 text-xs font-bold rounded-lg border border-white/5">2024 — 2028</span>
+                                    <span
+                                        class="px-3 py-1 bg-violet-500/20 text-violet-300 text-xs font-bold rounded-lg border border-violet-500/20"
+                                        data-lang="edu_year">2 курс</span>
+                                    <span
+                                        class="px-3 py-1 bg-white/5 text-gray-400 text-xs font-bold rounded-lg border border-white/5">2024
+                                        — 2028</span>
                                 </div>
                             </div>
                         </div>
@@ -228,19 +287,26 @@
                         <div class="md:col-span-7 flex flex-col justify-center">
                             <div class="space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
                                 <p class="text-white font-medium text-lg" data-lang="about_text_1">
-                                    Я студент и разработчик, который стремится создавать удобные и красивые интерфейсы.
+                                    Я студент и разработчик, который стремится создавать удобные и красивые
+                                    интерфейсы.
                                 </p>
                                 <p data-lang="about_text_2">
-                                    Сейчас я активно прокачиваю свои навыки в веб-разработке, параллельно изучая дизайн-системы и архитектуру приложений. Мне нравится решать сложные задачи и видеть, как код превращается в живой продукт.
+                                    Сейчас я активно прокачиваю свои навыки в веб-разработке, параллельно изучая
+                                    дизайн-системы и архитектуру приложений. Мне нравится решать сложные задачи и
+                                    видеть, как код превращается в живой продукт.
                                 </p>
                                 <p data-lang="about_text_3">
-                                    В свободное время я увлекаюсь <span class="text-white">видеоиграми, саморазвитием и стримингом</span>. Всегда открыт к изучению новых технологий и инструментов.
+                                    В свободное время я увлекаюсь <span class="text-white">видеоиграми, саморазвитием и
+                                        стримингом</span>. Всегда открыт к изучению новых технологий и инструментов.
                                 </p>
                             </div>
                             <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/5">
-                                <div><span class="block text-2xl font-bold text-white">2+</span><span class="text-xs text-gray-500" data-lang="stat_exp">Года в коде</span></div>
-                                <div><span class="block text-2xl font-bold text-fuchsia-400">10+</span><span class="text-xs text-gray-500" data-lang="stat_proj">Проектов</span></div>
-                                <div><span class="block text-2xl font-bold text-emerald-400">24/7</span><span class="text-xs text-gray-500" data-lang="stat_online">На связи</span></div>
+                                <div><span class="block text-2xl font-bold text-white">2+</span><span
+                                        class="text-xs text-gray-500" data-lang="stat_exp">Года в коде</span></div>
+                                <div><span class="block text-2xl font-bold text-fuchsia-400">10+</span><span
+                                        class="text-xs text-gray-500" data-lang="stat_proj">Проектов</span></div>
+                                <div><span class="block text-2xl font-bold text-emerald-400">24/7</span><span
+                                        class="text-xs text-gray-500" data-lang="stat_online">На связи</span></div>
                             </div>
                         </div>
                     </div>
@@ -275,10 +341,14 @@
                     <div class="glass p-8 rounded-[2.5rem] tilt-card">
                         <h3 class="text-2xl font-bold mb-6 text-fuchsia-400">Tools</h3>
                         <ul class="space-y-4 text-gray-400 text-sm font-medium">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> VS Code / Git</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Vite / Webpack</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Figma Design</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Node.js</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> VS Code / Git</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Vite / Webpack</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Figma Design</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Node.js</li>
                         </ul>
                     </div>
                 </div>
@@ -286,29 +356,41 @@
 
             <section id="projects" class="section-content">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="glass overflow-hidden rounded-[2.5rem] group tilt-card">
-                        <div class="h-48 bg-violet-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-violet-900/20 transition duration-500 relative">
-                            <div class="absolute inset-0 bg-gradient-to-t from-violet-900/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                            <i data-lucide="layout" class="w-12 h-12 text-violet-500 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition duration-500 relative z-10"></i>
+                    <div class="glass overflow-hidden rounded-[2.5rem] group">
+                        <div
+                            class="h-48 bg-violet-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-violet-900/20 transition duration-500 relative">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-violet-900/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
+                            </div>
+                            <i data-lucide="layout"
+                                class="w-12 h-12 text-violet-500 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition duration-500 relative z-10"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="font-bold text-lg mb-2">КРУТОЙ САЙТ</h4>
                             <p class="text-sm text-gray-500 mb-4">React, Chart.js, Tailwind</p>
-                            <a href="https://vk.com/app54373337" target="_blank" class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
-                                <span data-lang="btn_case">Смотреть кейс</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <a href="https://vk.com/app54373337" target="_blank"
+                                class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
+                                <span data-lang="btn_case">Смотреть кейс</span> <i data-lucide="arrow-up-right"
+                                    class="w-4 h-4"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="glass overflow-hidden rounded-[2.5rem] group tilt-card">
-                        <div class="h-48 bg-fuchsia-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-fuchsia-900/20 transition duration-500 relative">
-                            <div class="absolute inset-0 bg-gradient-to-t from-fuchsia-900/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                            <i data-lucide="smartphone" class="w-12 h-12 text-fuchsia-500 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition duration-500 relative z-10"></i>
+                    <div class="glass overflow-hidden rounded-[2.5rem] group">
+                        <div
+                            class="h-48 bg-fuchsia-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-fuchsia-900/20 transition duration-500 relative">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-fuchsia-900/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
+                            </div>
+                            <i data-lucide="smartphone"
+                                class="w-12 h-12 text-fuchsia-500 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition duration-500 relative z-10"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="font-bold text-lg mb-2">TypingPro (VK Mini App)</h4>
                             <p class="text-sm text-gray-500 mb-4">React, Bridge, CSS Modules</p>
-                            <a href="https://vk.com/app54373337" target="_blank" class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
-                                <span data-lang="btn_case">Смотреть кейс</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <a href="https://vk.com/app54373337" target="_blank"
+                                class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
+                                <span data-lang="btn_case">Смотреть кейс</span> <i data-lucide="arrow-up-right"
+                                    class="w-4 h-4"></i>
                             </a>
                         </div>
                     </div>
@@ -316,36 +398,48 @@
             </section>
 
             <section id="contact" class="section-content space-y-6">
-                <div class="glass p-8 md:p-12 rounded-[2.5rem] tilt-card">
+                <div class="glass p-8 md:p-12 rounded-[2.5rem]">
                     <h2 class="text-3xl font-bold mb-8" data-lang="contact_title">Свяжитесь со мной</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        
+
                         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                             <input type="hidden" name="access_key" value="0ee354cc-3aab-4562-bd26-34f1292bcb02">
                             <input type="hidden" name="subject" value="Новая заявка с портфолио">
                             <input type="hidden" name="from_name" value="Portfolio Site">
                             <input type="hidden" name="redirect" value="http://127.0.0.1:5500/">
 
-                            <input type="text" name="name" data-placeholder="ph_name" placeholder="Имя" required class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
-                            <input type="email" name="email" data-placeholder="ph_email" placeholder="Email" required class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
-                            <textarea name="message" data-placeholder="ph_msg" placeholder="О проекте..." rows="4" required class="w-full p-4 rounded-2xl input-glass text-sm resize-none text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors"></textarea>
-                            
-                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl font-bold text-sm text-white hover:opacity-90 hover:shadow-lg hover:shadow-violet-500/30 transition transform active:scale-95">
+                            <input type="text" name="name" data-placeholder="ph_name" placeholder="Имя" required
+                                class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
+                            <input type="email" name="email" data-placeholder="ph_email" placeholder="Email" required
+                                class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
+                            <textarea name="message" data-placeholder="ph_msg" placeholder="О проекте..." rows="4"
+                                required
+                                class="w-full p-4 rounded-2xl input-glass text-sm resize-none text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors"></textarea>
+
+                            <button type="submit"
+                                class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl font-bold text-sm text-white hover:opacity-90 hover:shadow-lg hover:shadow-violet-500/30 transition transform active:scale-95">
                                 <span data-lang="btn_send">Отправить</span>
                             </button>
                         </form>
 
                         <div class="space-y-6">
-                            <p class="text-gray-400 text-sm" data-lang="contact_sub">Готов к предложениям о работе и коллаборациям.</p>
+                            <p class="text-gray-400 text-sm" data-lang="contact_sub">Готов к предложениям о работе и
+                                коллаборациям.</p>
                             <div class="flex flex-col gap-3">
-                                <a href="https://t.me/F1xasasasasa" class="flex items-center gap-4 text-sm hover:text-violet-400 transition group">
-                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-violet-500/20 transition"><i data-lucide="send" class="w-5 h-5"></i></div> Telegram
+                                <a href="https://t.me/F1xasasasasa"
+                                    class="flex items-center gap-4 text-sm hover:text-violet-400 transition group">
+                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-violet-500/20 transition"><i
+                                            data-lucide="send" class="w-5 h-5"></i></div> Telegram
                                 </a>
-                                <a href="mailto:f1xasasasa@gmail.com" class="flex items-center gap-4 text-sm hover:text-fuchsia-400 transition group">
-                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-fuchsia-500/20 transition"><i data-lucide="mail" class="w-5 h-5"></i></div> Email
+                                <a href="mailto:f1xasasasa@gmail.com"
+                                    class="flex items-center gap-4 text-sm hover:text-fuchsia-400 transition group">
+                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-fuchsia-500/20 transition"><i
+                                            data-lucide="mail" class="w-5 h-5"></i></div> Email
                                 </a>
-                                <a href="https://github.com/F1xASASASA" class="flex items-center gap-4 text-sm hover:text-white transition group">
-                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-white/20 transition"><i data-lucide="github" class="w-5 h-5"></i></div> GitHub
+                                <a href="https://github.com/F1xASASASA"
+                                    class="flex items-center gap-4 text-sm hover:text-white transition group">
+                                    <div class="p-2 bg-white/5 rounded-lg group-hover:bg-white/20 transition"><i
+                                            data-lucide="github" class="w-5 h-5"></i></div> GitHub
                                 </a>
                             </div>
                         </div>
@@ -365,12 +459,12 @@
             const interval = setInterval(() => {
                 element.innerText = originalText.split("")
                     .map((letter, index) => {
-                        if(index < iterations) return originalText[index];
+                        if (index < iterations) return originalText[index];
                         return letters[Math.floor(Math.random() * letters.length)];
                     })
                     .join("");
-                
-                if(iterations >= originalText.length) clearInterval(interval);
+
+                if (iterations >= originalText.length) clearInterval(interval);
                 iterations += 1 / 2;
             }, 30);
         }
@@ -387,11 +481,13 @@
                     const rotateX = (y - centerY) / 20;
                     const rotateY = (centerX - x) / 20;
 
+                    card.style.transition = 'transform 0.1s ease-out';
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
                     card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 80%)`;
                 });
 
                 card.addEventListener("mouseleave", () => {
+                    card.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
                     card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
                     card.style.background = `rgba(255, 255, 255, 0.02)`;
                 });
@@ -525,7 +621,7 @@
                 }
             });
 
-            gsap.to(currentSection, { 
+            gsap.to(currentSection, {
                 y: -20, opacity: 0, duration: 0.3, ease: "power2.in",
                 onComplete: () => {
                     currentSection.classList.remove('active');
@@ -537,4 +633,5 @@
         }
     </script>
 </body>
+
 </html>
