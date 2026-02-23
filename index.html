@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arseniy Dev | Portfolio</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -39,7 +41,7 @@
             position: fixed;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             z-index: -1;
             filter: blur(80px);
@@ -69,41 +71,48 @@
             outline: none;
             transition: 0.3s;
         }
+
         .input-glass:focus {
             border-color: rgba(139, 92, 246, 0.5);
             background: rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
+
 <body class="p-4 md:p-8 pt-10 md:pt-24 flex items-start justify-center">
 
     <div class="blob top-0 left-0"></div>
     <div class="blob bottom-0 right-0"></div>
 
     <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
-        
+
         <aside class="lg:col-span-3 space-y-6" id="sidebar">
             <div class="glass p-6 rounded-[2rem] text-center lg:text-left">
-                <img 
-                    src="image.jpg" 
-                    alt="Арсений" 
-                    class="w-20 h-20 rounded-2xl mb-4 mx-auto lg:mx-0 shadow-lg shadow-violet-500/20 object-cover"
-                >
+                <img src="image.jpg" alt="Арсений"
+                    class="w-20 h-20 rounded-2xl mb-4 mx-auto lg:mx-0 shadow-lg shadow-violet-500/20 object-cover">
                 <h1 class="text-xl font-extrabold tracking-tight">Арсений <span class="text-violet-500">.dev</span></h1>
                 <p class="text-gray-500 text-sm mt-1">Frontend Engineer</p>
             </div>
 
             <nav class="glass p-3 rounded-[2rem] flex lg:flex-col gap-2 overflow-x-auto">
-                <button id="nav-home" onclick="switchSection('home')" class="nav-item active flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap">
+                <button id="nav-home" onclick="switchSection('home')"
+                    class="nav-item active flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap">
                     <i data-lucide="layout-grid" class="w-4 h-4"></i> Главная
                 </button>
-                <button id="nav-stack" onclick="switchSection('stack')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-about" onclick="switchSection('about')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                    <i data-lucide="user" class="w-4 h-4"></i> Обо мне
+                </button>
+                <button id="nav-stack" onclick="switchSection('stack')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="layers" class="w-4 h-4"></i> Стек
                 </button>
-                <button id="nav-projects" onclick="switchSection('projects')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-projects" onclick="switchSection('projects')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="code-2" class="w-4 h-4"></i> Кейсы
                 </button>
-                <button id="nav-contact" onclick="switchSection('contact')" class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
+                <button id="nav-contact" onclick="switchSection('contact')"
+                    class="nav-item flex-1 flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-400 hover:text-white whitespace-nowrap">
                     <i data-lucide="send" class="w-4 h-4"></i> Связь
                 </button>
             </nav>
@@ -112,7 +121,8 @@
                 <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Статус</p>
                 <div class="flex items-center gap-3 text-sm">
                     <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                     </span>
                     Доступен для проектов
@@ -121,16 +131,19 @@
         </aside>
 
         <main class="lg:col-span-9 h-full min-h-[500px]">
-            
+
             <section id="home" class="section-content active space-y-6">
                 <div class="glass p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden">
                     <div class="relative z-10">
                         <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                            Создаю цифровые решения <br> 
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">через код и дизайн.</span>
+                            Создаю цифровые решения <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">через
+                                код и дизайн.</span>
                         </h2>
                         <p class="text-gray-400 text-lg max-w-xl leading-relaxed mb-8">
-                            Специализируюсь на создании высокопроизводительных SPA на React и интерактивных интерфейсов с использованием GSAP. 2 года в разработке.
+                            Специализируюсь на создании высокопроизводительных SPA на React и интерактивных интерфейсов
+                            с использованием GSAP. 2 года в разработке.
                         </p>
                         <div class="flex flex-wrap gap-3">
                             <span class="tech-tag text-violet-300">#TypeScript</span>
@@ -143,18 +156,94 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between group">
-                        <i data-lucide="zap" class="w-10 h-10 text-yellow-400 mb-6 group-hover:scale-110 transition"></i>
+                        <i data-lucide="zap"
+                            class="w-10 h-10 text-yellow-400 mb-6 group-hover:scale-110 transition"></i>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Производительность</h3>
                             <p class="text-sm text-gray-500">Оптимизация Core Web Vitals и быстрая загрузка.</p>
                         </div>
                     </div>
                     <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between group">
-                        <i data-lucide="palette" class="w-10 h-10 text-fuchsia-400 mb-6 group-hover:scale-110 transition"></i>
+                        <i data-lucide="palette"
+                            class="w-10 h-10 text-fuchsia-400 mb-6 group-hover:scale-110 transition"></i>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Pixel Perfect</h3>
                             <p class="text-sm text-gray-500">Точный перенос макетов из Figma в код.</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section id="about" class="section-content space-y-6">
+                <div class="glass p-8 md:p-12 rounded-[2.5rem]">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+
+                        <div class="md:col-span-5 space-y-6">
+                            <h2 class="text-3xl font-bold">Кто я такой?</h2>
+
+                            <div
+                                class="bg-white/5 p-6 rounded-3xl border border-white/10 relative overflow-hidden group">
+                                <div
+                                    class="absolute top-0 right-0 w-20 h-20 bg-violet-500/20 blur-xl rounded-full -mr-10 -mt-10">
+                                </div>
+
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="p-2 bg-white/10 rounded-lg">
+                                        <i data-lucide="graduation-cap" class="w-5 h-5 text-violet-400"></i>
+                                    </div>
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-gray-400 uppercase">Образование</span>
+                                </div>
+
+                                <h3 class="text-xl font-bold mb-1">Колледж МИДиС</h3>
+                                <p class="text-sm text-gray-400 mb-4">Разработка веб и мультимедийных приложений</p>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-violet-500/20 text-violet-300 text-xs font-bold rounded-lg border border-violet-500/20">
+                                        2 курс
+                                    </span>
+                                    <span
+                                        class="px-3 py-1 bg-white/5 text-gray-400 text-xs font-bold rounded-lg border border-white/5">
+                                        2024 — 2028
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-7 flex flex-col justify-center">
+                            <div class="space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                                <p class="text-white font-medium text-lg">
+                                    Привет! Я студент и разработчик, который стремится создавать удобные и красивые
+                                    интерфейсы.
+                                </p>
+                                <p>
+                                    Сейчас я активно прокачиваю свои навыки в веб-разработке, параллельно изучая
+                                    дизайн-системы и архитектуру приложений. Мне нравится решать сложные задачи и
+                                    видеть, как код превращается в живой продукт.
+                                </p>
+                                <p>
+                                    В свободное время я увлекаюсь <span class="text-white">видеоиграми, саморазвитием и
+                                        стримингом</span>. Всегда открыт к изучению новых технологий и инструментов.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/5">
+                                <div>
+                                    <span class="block text-2xl font-bold text-white">2+</span>
+                                    <span class="text-xs text-gray-500">Года в коде</span>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-bold text-fuchsia-400">10+</span>
+                                    <span class="text-xs text-gray-500">Проектов</span>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-bold text-emerald-400">24/7</span>
+                                    <span class="text-xs text-gray-500">На связи</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -187,10 +276,14 @@
                     <div class="glass p-8 rounded-[2.5rem]">
                         <h3 class="text-2xl font-bold mb-6 text-fuchsia-400">Tools</h3>
                         <ul class="space-y-4 text-gray-400 text-sm font-medium">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> VS Code / Git</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Vite / Webpack</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Figma Design</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Node.js</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> VS Code / Git</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Vite / Webpack</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Figma Design</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-emerald-500"></i> Node.js</li>
                         </ul>
                     </div>
                 </div>
@@ -199,25 +292,31 @@
             <section id="projects" class="section-content">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="glass overflow-hidden rounded-[2.5rem] group">
-                        <div class="h-48 bg-violet-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-violet-900/20 transition duration-500">
-                            <i data-lucide="layout" class="w-12 h-12 text-violet-500 opacity-50 group-hover:opacity-100 transition"></i>
+                        <div
+                            class="h-48 bg-violet-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-violet-900/20 transition duration-500">
+                            <i data-lucide="layout"
+                                class="w-12 h-12 text-violet-500 opacity-50 group-hover:opacity-100 transition"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="font-bold text-lg mb-2">КРУТОЙ САЙТ</h4>
                             <p class="text-sm text-gray-500 mb-4">React, Chart.js, Tailwind</p>
-                            <a href="https://vk.com/app54373337" target="_blank" class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
+                            <a href="https://vk.com/app54373337" target="_blank"
+                                class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
                                 Смотреть кейс <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                             </a>
                         </div>
                     </div>
                     <div class="glass overflow-hidden rounded-[2.5rem] group">
-                        <div class="h-48 bg-fuchsia-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-fuchsia-900/20 transition duration-500">
-                            <i data-lucide="smartphone" class="w-12 h-12 text-fuchsia-500 opacity-50 group-hover:opacity-100 transition"></i>
+                        <div
+                            class="h-48 bg-fuchsia-900/10 flex items-center justify-center border-b border-white/5 group-hover:bg-fuchsia-900/20 transition duration-500">
+                            <i data-lucide="smartphone"
+                                class="w-12 h-12 text-fuchsia-500 opacity-50 group-hover:opacity-100 transition"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="font-bold text-lg mb-2">TypingPro (VK Mini App)</h4>
                             <p class="text-sm text-gray-500 mb-4">React, Bridge, CSS Modules</p>
-                            <a href="https://vk.com/app54373337" target="_blank" class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
+                            <a href="https://vk.com/app54373337" target="_blank"
+                                class="text-violet-400 text-sm font-bold flex items-center gap-2 hover:text-violet-300 transition-colors cursor-pointer w-fit">
                                 Смотреть кейс <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                             </a>
                         </div>
@@ -229,19 +328,23 @@
                 <div class="glass p-8 md:p-12 rounded-[2.5rem]">
                     <h2 class="text-3xl font-bold mb-8">Свяжитесь со мной</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        
+
                         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                            
+
                             <input type="hidden" name="access_key" value="0ee354cc-3aab-4562-bd26-34f1292bcb02">
                             <input type="hidden" name="subject" value="Новая заявка с портфолио">
                             <input type="hidden" name="from_name" value="Portfolio Site">
                             <input type="hidden" name="redirect" value="http://127.0.0.1:5500/">
 
-                            <input type="text" name="name" placeholder="Имя" required class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
-                            <input type="email" name="email" placeholder="Email" required class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
-                            <textarea name="message" placeholder="О проекте..." rows="4" required class="w-full p-4 rounded-2xl input-glass text-sm resize-none text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors"></textarea>
-                            
-                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl font-bold text-sm text-white hover:opacity-90 transition transform active:scale-95">
+                            <input type="text" name="name" placeholder="Имя" required
+                                class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
+                            <input type="email" name="email" placeholder="Email" required
+                                class="w-full p-4 rounded-2xl input-glass text-sm text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors">
+                            <textarea name="message" placeholder="О проекте..." rows="4" required
+                                class="w-full p-4 rounded-2xl input-glass text-sm resize-none text-white placeholder-gray-400 focus:outline-none focus:border-violet-500 transition-colors"></textarea>
+
+                            <button type="submit"
+                                class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl font-bold text-sm text-white hover:opacity-90 transition transform active:scale-95">
                                 Отправить
                             </button>
                         </form>
@@ -249,9 +352,15 @@
                         <div class="space-y-6">
                             <p class="text-gray-400 text-sm">Готов к предложениям о работе и коллаборациям.</p>
                             <div class="flex flex-col gap-3">
-                                <a href="https://t.me/F1xasasasasa" class="flex items-center gap-4 text-sm hover:text-violet-400 transition"><i data-lucide="send" class="w-5 h-5"></i> Telegram</a>
-                                <a href="mailto:f1xasasasa@gmail.com" class="flex items-center gap-4 text-sm hover:text-fuchsia-400 transition"><i data-lucide="mail" class="w-5 h-5"></i> Email</a>
-                                <a href="https://github.com/F1xASASASA" class="flex items-center gap-4 text-sm hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i> GitHub</a>
+                                <a href="https://t.me/F1xasasasasa"
+                                    class="flex items-center gap-4 text-sm hover:text-violet-400 transition"><i
+                                        data-lucide="send" class="w-5 h-5"></i> Telegram</a>
+                                <a href="mailto:f1xasasasa@gmail.com"
+                                    class="flex items-center gap-4 text-sm hover:text-fuchsia-400 transition"><i
+                                        data-lucide="mail" class="w-5 h-5"></i> Email</a>
+                                <a href="https://github.com/F1xASASASA"
+                                    class="flex items-center gap-4 text-sm hover:text-white transition"><i
+                                        data-lucide="github" class="w-5 h-5"></i> GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -286,20 +395,20 @@
                 }
             });
 
-            gsap.to(currentSection, { 
-                y: -20, 
-                opacity: 0, 
-                duration: 0.3, 
+            gsap.to(currentSection, {
+                y: -20,
+                opacity: 0,
+                duration: 0.3,
                 ease: "power2.in",
                 onComplete: () => {
                     currentSection.classList.remove('active');
                     nextSection.classList.add('active');
 
-                    gsap.fromTo(nextSection, 
-                        { y: 20, opacity: 0 }, 
+                    gsap.fromTo(nextSection,
+                        { y: 20, opacity: 0 },
                         { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
                     );
-                    
+
                     lucide.createIcons();
                 }
             });
@@ -318,4 +427,5 @@
         });
     </script>
 </body>
+
 </html>
