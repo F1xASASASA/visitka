@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="setupScreen">
+            <h1>Угадайка!</h1>
+            <h3>Жариков Арсений П-38</h3>
+            <p>Укажите интервал чисел для угадывания</p>
+            
+            <div class="form-group">
+                <label for="minNumber">От (минимум)</label>
+                <input type="number" id="minNumber" placeholder="Например: 1">
+            </div>
+            
+            <div class="form-group">
+                <label for="maxNumber">До (максимум)</label>
+                <input type="number" id="maxNumber" placeholder="Например: 100">
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-secondary" onclick="clearForm()">Отмена</button>
+                <button class="btn-primary" onclick="startGame()">Сохранить</button>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="hidden">
+            <h1>Угадайка!</h1>
+            
+            <div class="attempt-info">
+                Попытка № <span class="attempt-number" id="attemptCount">0</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="guessInput">Введите ваше число</label>
+                <input type="number" id="guessInput" placeholder="Ваше предположение">
+            </div>
+            
+            <button class="btn-guess" onclick="makeGuess()">Go</button>
+            
+            <div id="result" class="result hidden"></div>
+            
+            <div class="button-group">
+                <button class="btn-secondary" onclick="resetGame()">Новая игра</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let secretNumber;
+        let attempts;
+        let minRange;
+        let maxRange;
+
+        function clearForm() {
+            document.getElementById('minNumber').value = '';
+            document.getElementById('maxNumber').value = '';
+        }
+
+        function startGame() {
+            minRange = parseInt(document.getElementById('minNumber').value);
+            maxRange = parseInt(document.getElementById('maxNumber').value);
+
+            if (isNaN(minRange) || isNaN(maxRange)) {
+                alert('Пожалуйста, введите оба числа!');
+                return;
+            }
+
+            if (minRange >= maxRange) {
+                alert('Минимум должен быть меньше максимума!');
+                return;
+            }
+
+            secretNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+            attempts = 0;
+
+            document.getElementById('setupScreen').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+            document.getElementById('attemptCount').textContent = attempts;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function makeGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(guess)) {
+                alert('Пожалуйста, введите число!');
+                return;
+            }
+
+            attempts++;
+            document.getElementById('attemptCount').textContent = attempts;
+            resultDiv.classList.remove('hidden');
+
+            if (guess < secretNumber) {
+                resultDiv.textContent = 'Больше! Попробуйте ещё раз.';
+                resultDiv.className = 'result higher';
+            } else if (guess > secretNumber) {
+                resultDiv.textContent = 'Меньше! Попробуйте ещё раз.';
+                resultDiv.className = 'result lower';
+            } else {
+                resultDiv.textContent = 'Попал! Вы угадали число!';
+                resultDiv.className = 'result correct';
+            }
+
+            document.getElementById('guessInput').value = '';
+            document.getElementById('guessInput').focus();
+        }
+
+        function resetGame() {
+            document.getElementById('gameScreen').classList.add('hidden');
+            document.getElementById('setupScreen').classList.remove('hidden');
+            document.getElementById('result').classList.add('hidden');
+            clearForm();
+        };
+    </script>
+</body>
+</html>
